@@ -19,7 +19,7 @@
 		let req = document.getElementById("search").value;
 
 		if (str.search(req)!=-1) {
-			document.getElementById("result").innerHTML = "Postiton: " + str.search(req);
+			document.getElementById("result").innerHTML = "Postiton: " + str.search(req) + " String: " + str;
 		}
 		else{
 			document.getElementById("result").innerHTML = "Not found";
