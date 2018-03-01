@@ -17,9 +17,10 @@
 
 	function myFunction(){
 		let req = document.getElementById("search").value;
+		let res = arr.indexOf(req);
 
-		if (arr.indexOf(req)!=-1) {
-			document.getElementById("result").innerHTML = "Postiton: " + arr.indexOf(req);
+		if (res!=-1) {
+			document.getElementById("result").innerHTML = "Postiton: " + res + " Text: " + arr[res];
 		}
 		else{
 			document.getElementById("result").innerHTML = "Not found";
