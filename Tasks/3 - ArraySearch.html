@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p id="array"></p>
+	<p>Enter text to search for: <input type="text" id="search"></p>
+	<button onclick="myFunction()">Search</button>
+	<p id="result"></p>
+
+<script type="text/javascript">
+
+	const arr = ["this", "is", "some", "text"];
+	document.getElementById("array").innerHTML = arr;
+
+	function myFunction(){
+		let req = document.getElementById("search").value;
+
+		if (arr.indexOf(req)!=-1) {
+			document.getElementById("result").innerHTML = "Postiton: " + arr.indexOf(req);
+		}
+		else{
+			document.getElementById("result").innerHTML = "Not found";
+		}
+	}
+
+</script>
+</body>
+</html>

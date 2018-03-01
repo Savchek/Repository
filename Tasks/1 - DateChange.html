@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="data"></p>
+
+<script type="text/javascript">
+	const date = prompt("Enter date", "12 feb 2018");
+	const arr = date.split(' ');
+	const dates = [
+		["jan", "feb", "mar", "apr", "may", "jun", "aug", "sep", "oct", "nov", "dec"],
+		["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+	];
+
+	for(let i = 0; i < 12; i++) {
+	if (arr[1] === dates[0][i]){
+		arr[1] = dates[1][i];
+	}
+}
+
+	document.getElementById("data").innerHTML = (arr[0] + "." + arr[1] + "." + arr[2]%2000);
+
+</script>
+</body>
+</html>
