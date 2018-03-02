@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p id="str"></p>
+	<p>Enter text to search for: <input type="text" id="search"></p>
+	<button onclick="myFunction()">Search</button>
+	<p id="result"></p>
+
+<script type="text/javascript">
+
+	const people = [  
+	{name: 'Petro',   surname: 'Petrenko'  },  
+	{name: 'Pavlo',   surname: 'Pavlenko'  },  
+	{name: 'Fedya',   surname: 'Fedotov'  }
+	];
+
+	
+
+	function myFunction(){
+		const val = document.getElementById("search").value.toLowerCase();
+		let names;
+		let surnames;
+		let results = ' ';
+
+		for (var key in people){
+
+			names = people[key].name.toLowerCase();
+			if (names.search(val)!=-1) {
+				results = (results + 'Name: ' + people[key].name + ' ');
+			}
+
+			surnames = people[key].surname.toLowerCase();
+			if (surnames.search(val)!=-1) {
+				results = (results + 'Surname: ' + people[key].surname + '<br>');
+			}
+
+		}
+
+
+		if(results == ' '){
+			document.getElementById("result").innerHTML = 'Not found';
+		}
+
+		else{
+			document.getElementById("result").innerHTML = results;
+		}
+
+	}
+</script>
+</body>
+</html>
