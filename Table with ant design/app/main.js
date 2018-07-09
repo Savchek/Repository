@@ -165,7 +165,7 @@ class Add extends React.Component {
         <Modal
           id='modal'
           visible={visible}
-          title="Title"
+          title="Adding"
           onAdd={this.handleAdd}
           onCancel={this.handleCancel}
           footer={[
