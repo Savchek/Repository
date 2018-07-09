@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p id="string"></p>
+	<p>Enter text to search for: <input type="text" id="search"></p>
+	<button onclick="myFunction()">Search</button>
+	<p id="result"></p>
+
+<script type="text/javascript">
+
+	const str = "This is some text";
+	document.getElementById("string").innerHTML = (str);
+
+	function myFunction(){
+		let req = document.getElementById("search").value;
+		req = req.toLowerCase();
+		strLow = str.toLowerCase();
+
+		if (strLow.search(req)!=-1) {
+			document.getElementById("result").innerHTML = "Postiton: " + strLow.search(req) + " String: " + str;
+		}
+		else{
+			document.getElementById("result").innerHTML = "Not found";
+		}
+	}
+
+</script>
+</body>
+</html>

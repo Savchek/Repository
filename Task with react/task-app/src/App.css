@@ -1,0 +1,160 @@
+.center{
+  position: relative;
+  margin: 10px 100px;
+}
+
+.title{
+  display: inline;
+}
+
+.logo{
+  text-transform: uppercase;
+}
+
+.green{
+  color: rgb(33,210,145);
+}
+
+li{
+  list-style: none;
+  color: white;
+  display: inline;
+  padding-right: 30px;
+  font-size: 12px;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.navigation{
+  position: absolute;
+  top: -10px;
+  right: -30px;
+  font-size: 12px;
+}
+
+.fields{
+  position: absolute;
+  background-color: white;
+  top: 150px;
+  left: 0;
+  width: 50%;
+  height: 450px;
+  color: black;
+}
+
+.fields .text-and-cnd{
+  position: relative;
+  color: rgb(33,210,145);
+  left: 40px;
+  bottom: 38px;
+}
+
+.fields .btn{
+  position: relative;
+  left: 437px;
+  bottom: 90px;
+}
+
+.fields-center{
+  position: relative;
+  margin: 30px 30px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox-custom {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+
+.checkbox-custom {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkbox:checked + .checkbox-custom::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  background: #413548;
+  border-radius: 2px;
+}
+
+.more-text{
+  position: absolute;
+  top: 150px;
+  right: 0;
+  width: 50%;
+  height: 450px;
+}
+
+.more-text .third{
+  margin-bottom: 40px;
+}
+
+.more-text .second{
+  margin-bottom: 40px;
+}
+
+.more-text-center{
+  position: relative;
+  margin: 100px 30px 30px 30px;
+}
+
+input{
+  display: block;
+  margin-bottom: 25px;
+  width: 515px;
+  height: 40px;
+  text-indent: 10px;
+  background-color: rgb(240,240,240);
+  border: 1px solid rgb(220,220,220);
+}
+
+.first{
+  font-size: 30px;
+}
+
+.second{
+  font-size: 20px;
+}
+
+.third{
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.btn{
+  padding: 15px 15px;
+  color: white;
+  background-color: rgb(33,210,145);
+  border-radius: 30px;
+  border: none;
+}
+
+.btn-special{
+  padding: 15px 15px;
+  color: white;
+  background: none;
+  border-radius: 30px;
+  border: 3px solid white;
+  margin-right: 20px;
+}
