@@ -1,0 +1,13 @@
+#AddButtonContainer{
+	margin-top: -48px;
+}
+
+#if-empty{
+	padding-top: 20px;
+	color: red;
+}
+
+input{
+	position: relative;
+	top: -15px;
+}
