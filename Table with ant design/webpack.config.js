@@ -7,7 +7,7 @@ const statConf = {
   hash: false
 }
 module.exports = {
-  entry: ['babel-polyfill', './app/main.js'],
+  entry: ['babel-polyfill', './app.jsx'],
   output: {
     filename: './dist/bundle.js'
   },
