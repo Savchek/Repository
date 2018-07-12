@@ -7,7 +7,7 @@ export default class Main extends Component {
 	state = {
 		data
 	}
-	handleAdd = (elem) => {
+	handleCreate = (elem) => {
 		this.setState({
 			data: [
 				...this.state.data,
@@ -23,7 +23,7 @@ export default class Main extends Component {
 		return (
 			<div>
 			    <Table columns={columns} dataSource={this.state.data} />
-			    <AddButton onClick={this.handleAdd} />
+			    <AddButton onClick={this.handleCreate} />
 			</div>
 		)
 	}
