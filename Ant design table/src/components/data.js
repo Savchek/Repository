@@ -1,21 +1,21 @@
 export const data =  [{
   key: 1,
-  date: '12-07-2018',
+  date: 'Jul 12 2018',
   username: 'lnlhntr',
-  dailyPlan: 'Do some tasks',
-  futurePlan: 'Do a billion of tasks',
+  dailyPlan: 'Make a few assignments',
+  futurePlan: 'Conquer the whole world',
 }, {
   key: 2,
-  date: '12-07-2018',
+  date: 'Jul 12 2018',
   username: 'Savchek',
-  dailyPlan: 'Do some tasks',
-  futurePlan: 'Do a billion of tasks',
+  dailyPlan: 'Make a few assignments',
+  futurePlan: 'Conquer the whole world',
 }, {
   key: 3,
-  date: '12-07-2018',
+  date: 'Jul 12 2018',
   username: 'Alex-135-135',
-  dailyPlan: 'Do some tasks',
-  futurePlan: 'Do a billion of tasks',
+  dailyPlan: 'Make a few assignments',
+  futurePlan: 'Conquer the whole world',
 }];
 
 export const columns = [{
