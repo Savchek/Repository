@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brackets check</title>
+</head>
+<body>
+<p>Enter brackets: <input type='text' id='brackets'> <button onclick='brcCheck()'>Check</button></p>
+<p id='result'></p>
+
+<script type='text/javascript'>
+
+	function brcCheck(){
+		const brc = document.getElementById('brackets').value;
+		let opened = [];
+		let closed = [];
+
+		let ifbrc = function (opn, cls, i){
+			if (opened[opened.length-1]==opn && brc[i]==cls) {
+				opened.pop();
+				closed.shift();
+			}
+		}
+
+		for(let i = 0; i < brc.length; i++ ){
+			if (brc[i]=='(' || brc[i]=='[' || brc[i]=='{') { opened.push(brc[i]) }
+			if (brc[i]==')' || brc[i]==']' || brc[i]=='}') { closed.push(brc[i]) }
+			ifbrc('(', ')', i);
+			ifbrc('[', ']', i);
+			ifbrc('{', '}', i);
+		}
+
+		document.getElementById('result').innerHTML = (opened.length==0 && closed.length==0);
+	}
+</script>
+</body>
+</html>
