@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Versions sort</title>
+</head>
+<body>
+<script>
+let versions = ['0.4', '0.11', '0.4.1', '0.4', '0.4.2', '2.0.1', '2', '0.0.1', '0.2.3'];
+
+
+versions.sort(function(v1, v2) {
+    v1parts = v1.split('.'),
+    v2parts = v2.split('.');
+
+    v1parts = v1parts.map(Number);
+    v2parts = v2parts.map(Number);
+
+    for (var i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length == i) {
+            return 1;
+        }
+        if (v1parts[i] == v2parts[i]) {
+            continue;
+        }
+        else if (v1parts[i] > v2parts[i]) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+	return 0;
+});
+
+
+document.body.innerHTML = versions; //[ '0.0.1', '0.2.3',  '0.4', '0.4', '0.4.1',  '0.4.2', '0.11', '2', '2.0.1']
+</script>
+</body>
+</html>
