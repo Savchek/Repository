@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daily schedule</title>
+	<style>
+		#box{
+			width: 500px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		#list {
+			margin: 30px 10px 0px 10px;
+		}
+		.left {
+			float: left;
+			margin: 5px 0px 0px 5px;
+		}
+		.right {
+			float: right;
+			margin: 5px 5px 0px 0px;
+		}
+	</style>
+</head>
+<body>
+
+<div id="box">
+	<div id="buttons">
+		<input class="left" type="button" name="plan" value="Daily plan" onclick="makeDailyPlan()">
+		<input class="right" type="button" name="worked" value="Worked" onclick="makeDailyWorked()">
+	</div>
+	<div id="list">
+		<div class="left">
+			<p id="dailyPlanHead"></p>
+			<ul id="dailyPlanList"></ul>
+		</div>
+		<div class="right">
+			<p id="workedPlanHead"></p>
+			<ul id="workedPlanList"></ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	let date = new Date().getMonth()+1+"/"+new Date().getDate(),
+		tasks = ['coordinating dev workflow','pull requests review','daily call','testing/assistance datasets','testing/fixing bugs', 'eating', 'walking oustide','chilling out'];
+
+	function makeDailyPlan(){
+		let res = '',
+			plan=tasks.slice();
+
+		for(let i = 0; i<5; i++){
+			let j = Math.floor(Math.random() * plan.length);
+			res+='<li>'+plan[j]+'</li>';
+			plan.splice(j, 1);
+		}
+
+		document.getElementById("dailyPlanList").innerHTML = res;
+		document.getElementById("dailyPlanHead").innerHTML = date + ' plan:';
+	}
+
+	function makeDailyWorked(){
+		let res = '',
+			plan=tasks.slice(),
+			time = [1,1,1,1,1],
+			overtime=Math.floor(Math.random() * 3);
+
+		for(let i = 0, k=3+overtime; i<k; i++){
+			let j = Math.floor(Math.random() * 5);
+			time[j]++;
+		}
+		for(let i = 0; i<5; i++){
+			let j = Math.floor(Math.random() * plan.length);
+			res+='<li>'+plan[j]+' '+time[i]+'h</li>';
+			plan.splice(j, 1);
+		}
+
+		document.getElementById("workedPlanList").innerHTML = res;
+		document.getElementById("workedPlanHead").innerHTML = date + ' worked '+ (8+overtime) +'h:';
+	}
+</script>
+</body>
+</html>
