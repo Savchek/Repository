@@ -2,14 +2,22 @@
 <html>
 <head>
 	<title>Daily schedule</title>
+	<base target="index.html"> 
 	<style>
-		#box{
-			width: 500px;
-			height: 200px;
-			border: 1px solid black;
+		body {
+		    font-family: 'Open Sans', sans-serif;
+		    background-color: #000;
+		    margin: 0;
+		}
+		#box {
+	    	display: table;
+	   		width: 100%;
+	   		height: 100vh;
 		}
 		#list {
 			margin: 30px 10px 0px 10px;
+			font-size: 25px; 
+			color: #fff;
 		}
 		.left {
 			float: left;
@@ -21,12 +29,12 @@
 		}
 	</style>
 </head>
-<body>
+<body onload="makeDailyPlan(), makeDailyWorked()">
 
 <div id="box">
 	<div id="buttons">
-		<input class="left" type="button" name="plan" value="Daily plan" onclick="makeDailyPlan()">
-		<input class="right" type="button" name="worked" value="Worked" onclick="makeDailyWorked()">
+		<input class="left" type="button" name="plan" value="Refresh" onclick="makeDailyPlan()">
+		<input class="right" type="button" name="worked" value="Refresh" onclick="makeDailyWorked()">
 	</div>
 	<div id="list">
 		<div class="left">
@@ -42,38 +50,62 @@
 
 <script>
 	let date = new Date().getMonth()+1+"/"+new Date().getDate(),
-		tasks = ['coordinating dev workflow','pull requests review','daily call','testing/assistance datasets','testing/fixing bugs', 'eating', 'walking oustide','chilling out'];
+		tasks = ['coordinating dev workflow','pull requests review','daily call','testing/assistance'],
+		rand = ['testing/fixing bugs', 'training programming skills','learning new features'],
+		ta = ['datasets', 'workflow', 'cl', 'engagement', 'client', 'doclib'];
+
 
 	function makeDailyPlan(){
-		let res = '',
-			plan=tasks.slice();
+		let res = [],
+			numberOfItems = Math.floor(Math.random() * 3),
+			plan=rand.slice();
 
-		for(let i = 0; i<5; i++){
+		for( let i = 0, l = tasks.length-1; i<l; i++ ){
+			res+='<li>'+tasks[i]+'</li>';
+		}
+
+		res+='<li>'+tasks[3]+' '+ta[Math.floor(Math.random() * ta.length)]+'</li>';
+
+		for( let i = 0; i <= numberOfItems; i++ ){
 			let j = Math.floor(Math.random() * plan.length);
 			res+='<li>'+plan[j]+'</li>';
 			plan.splice(j, 1);
 		}
-
+		
 		document.getElementById("dailyPlanList").innerHTML = res;
 		document.getElementById("dailyPlanHead").innerHTML = date + ' plan:';
 	}
 
 	function makeDailyWorked(){
-		let res = '',
-			plan=tasks.slice(),
-			time = [1,1,1,1,1],
-			overtime=Math.floor(Math.random() * 3);
+		let res = [],
+			numberOfItems = Math.floor(Math.random() * 3),
+			plan=rand.slice(),
+			time = [],
+			t = 4,
+			overtime=Math.floor(Math.random() * 5);
 
-		for(let i = 0, k=3+overtime; i<k; i++){
-			let j = Math.floor(Math.random() * 5);
+		for( let i = 0, k = 5+numberOfItems; i<k; i++ ){
+			time.push(1);
+		}
+
+		for(let i = 0, k=3+overtime-numberOfItems; i<k; i++){
+			let j = Math.floor(Math.random() * time.length);
 			time[j]++;
 		}
-		for(let i = 0; i<5; i++){
-			let j = Math.floor(Math.random() * plan.length);
-			res+='<li>'+plan[j]+' '+time[i]+'h</li>';
-			plan.splice(j, 1);
+
+		for( let i = 0, l = tasks.length-1; i<l; i++ ){
+			res+='<li>'+tasks[i]+' '+time[i]+'h</li>';
 		}
 
+		res+='<li>'+tasks[3]+' '+ta[Math.floor(Math.random() * ta.length)]+' '+time[3]+'h</li>';
+
+		t=4;
+		for( let i = 0; i <= numberOfItems; i++ ){
+			let j = Math.floor(Math.random() * plan.length);
+			res+='<li>'+plan[j]+' '+time[t]+'h</li>';
+			plan.splice(j, 1);
+			t++;
+		}
 		document.getElementById("workedPlanList").innerHTML = res;
 		document.getElementById("workedPlanHead").innerHTML = date + ' worked '+ (8+overtime) +'h:';
 	}
